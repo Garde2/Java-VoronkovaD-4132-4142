@@ -6,15 +6,19 @@ import java.util.Arrays;
 public class lesson3 {
 
     public static int[] SortMerge(int[] sortArr) {
+        
         int[] numm = Arrays.copyOf(sortArr, sortArr.length);
         int[] numm1 = new int[sortArr.length];
         int[] result = SortMergeInner(numm, numm1, 0, sortArr.length);
         return result;
+        
     }
 
     public static int[] SortMergeInner(int[] numm, int[] numm1, int startIndex, int endIndex) {
+        
         if (startIndex >= endIndex - 1) {
             return numm;
+            
         }
         
         int middle = startIndex + (endIndex - startIndex) / 2;
@@ -25,6 +29,7 @@ public class lesson3 {
         int index1 = middle;
         int destIndex = startIndex;
         int[] result = sorted == numm ? numm1 : numm;
+        
         while (index < middle && index1 < endIndex) {
             result[destIndex++] = sorted[index] < sorted1[index1]
                     ? sorted[index++] : sorted1[index1++];
@@ -41,17 +46,18 @@ public class lesson3 {
     public static ArrayList<Integer> CreateIt(int capacity){  //создадим список
 
         ArrayList<Integer> numbers = new ArrayList<>();
+        
         Random rnd = new Random();        
 
             for (int i=0; i < capacity; i++) {
                 numbers.add(rnd.nextInt(50));
             }             
         return numbers;
+        
     }
 
     public static void SortIt(ArrayList<Integer> numbers, int capacity){  // удалим четные
         
-
         for (int i = numbers.size() - 1; i >= 0; i--) {
             int even = numbers.get(i) % 2;
             if (even == 0) {
@@ -61,6 +67,7 @@ public class lesson3 {
         }
         Collections.sort(numbers);
         System.out.println(numbers);
+        
     }  
 
     public static void SortItAgain(ArrayList<Integer> numbers, int capacity){  // мин макс среднее
